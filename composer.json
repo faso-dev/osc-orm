@@ -1,0 +1,20 @@
+{
+    "name": "fas-odev/querybuilder",
+    "description": "Une classe pour construire des requettes sql",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "faso-dev",
+            "email": "faso-dev@protonmail.ch"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "FSD\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+
+    }
+}
