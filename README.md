@@ -22,7 +22,7 @@ This is a little orm or query Builder for PHP MySql. This is update for the smal
         $query = $builder
             ->insertInTo('user')
             ->colums('name','username','mail','role')
-            ->colums('faso-dev','faso-dev','mail@mail.faso-dev','ROLE_SUPER_ADMIN')
+            ->values('faso-dev','faso-dev','mail@mail.faso-dev','ROLE_SUPER_ADMIN')
             ->getQuery()
             ->getSQLQuery();
 
@@ -32,7 +32,7 @@ This is a little orm or query Builder for PHP MySql. This is update for the smal
         $lastInsertId = $builder
             ->insertInTo('user')
             ->colums('name','username','mail','role')
-            ->colums('faso-dev','faso-dev','mail@mail.faso-dev','ROLE_SUPER_ADMIN')
+            ->values('faso-dev','faso-dev','mail@mail.faso-dev','ROLE_SUPER_ADMIN')
             ->getQuery()
             ->setConnection($conection)
             ->save();
