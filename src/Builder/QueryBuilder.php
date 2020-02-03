@@ -1,10 +1,10 @@
 <?php
 
 
-namespace FSD\Builder;
+namespace FSDV\Builder;
 
 
-use FSD\Query\Query;
+use FSDV\Query\Query;
 use \PDO;
 
 class QueryBuilder
@@ -46,6 +46,18 @@ class QueryBuilder
      */
     protected $join;
     /**
+     * @var string
+     */
+    protected $groupBy;
+    /**
+     * @var int
+     */
+    protected $limit;
+    /**
+     * @var string
+     */
+    protected $like;
+    /**
      * @var array
      */
     protected $from;
@@ -76,6 +88,9 @@ class QueryBuilder
     public function select()
     {
         $this->fields = func_get_args();
+        if (!$this->fields){
+            return ['*'];
+        }
         return $this;
     }
 
@@ -224,7 +239,6 @@ class QueryBuilder
     public function getQuery(): Query
     {
         $query = new Query($this->connection);
-
         $query
             ->setQuery($this->buildQuery())
             ->setQueryParams($this->parameters)
@@ -258,7 +272,7 @@ class QueryBuilder
 
     private function buildAndWhere()
     {
-        if ($this->orWhere) {
+        if ($this->andWhere) {
             return ' ' . QueryBuilderKeyWord:: AND . ' ' . implode(' ' . QueryBuilderKeyWord:: AND . ' ', $this->andWhere);
         }
         return '';
