@@ -1,6 +1,6 @@
 {
-    "name": "faso-dev/querybuilder",
-    "description": "Une classe pour construire des requettes sql",
+    "name": "faso-dev/osc-orm",
+    "description": "This is a little orm or query Builder for PHP MySql.",
     "license": "MIT",
     "authors": [
         {
@@ -15,6 +15,5 @@
     },
     "minimum-stability": "dev",
     "require": {
-
     }
 }
