@@ -10,10 +10,11 @@
     ],
     "autoload": {
         "psr-4": {
-            "FSDV": "src/"
+            "FSDV\\": "src/"
         }
     },
     "minimum-stability": "dev",
     "require": {
+        "php" : "^7.1"
     }
 }
