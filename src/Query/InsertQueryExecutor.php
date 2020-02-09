@@ -8,7 +8,9 @@
 namespace FSDV\Query;
 
 
+use Exception;
 use PDO;
+use PDOStatement;
 
 /**
  * Class InsertQueryExecutor
@@ -23,5 +25,20 @@ class InsertQueryExecutor extends QueryExecutor
     public function __construct(PDO $connection = null)
     {
         parent::__construct($connection);
+    }
+
+    /**
+     * @return int|null
+     * @throws Exception
+     */
+    public function save()
+    {
+        if ($this->connection === null){
+            throw new Exception("The database connection required to execute query");
+        }
+        /** @var PDOStatement $query */
+        $query = $this->connection->prepare($this->query);
+        $query->execute($this->queryParams);
+        return (int)$this->connection->lastInsertId();
     }
 }

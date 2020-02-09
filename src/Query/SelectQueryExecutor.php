@@ -36,13 +36,7 @@ class SelectQueryExecutor extends QueryExecutor
      */
     public function getArrayResults(): ?array
     {
-        if ($this->connection === null){
-            throw new Exception("The database connection required to execute query");
-        }
-        /** @var PDOStatement $query */
-        $query = $this->connection->prepare($this->query);
-        $query->execute($this->queryParams);
-        return $query->fetchAll(PDO::FETCH_NUM);
+        return $this->execute()->fetchAll(PDO::FETCH_NUM);
     }
 
     /**
@@ -51,13 +45,7 @@ class SelectQueryExecutor extends QueryExecutor
      */
     public function getArrayAssocResults(): ?array
     {
-        if ($this->connection === null){
-            throw new Exception("The database connection required to execute query");
-        }
-        /** @var PDOStatement $query */
-        $query = $this->connection->prepare($this->query);
-        $query->execute($this->queryParams);
-        return $query->fetchAll(PDO::FETCH_ASSOC);
+        return $this->execute()->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -66,13 +54,7 @@ class SelectQueryExecutor extends QueryExecutor
      */
     public function getObjectsResults(): ?array
     {
-        if ($this->connection === null){
-            throw new Exception("The database connection required to execute query");
-        }
-        /** @var PDOStatement $query */
-        $query = $this->connection->prepare($this->query);
-        $query->execute($this->queryParams);
-        return $query->fetchAll(PDO::FETCH_OBJ);
+        return $this->execute()->fetchAll(PDO::FETCH_OBJ);
     }
 
     /**
@@ -81,13 +63,7 @@ class SelectQueryExecutor extends QueryExecutor
      */
     public function getFirstArrayAssocResult()
     {
-        if ($this->connection === null){
-            throw new Exception("The database connection required to execute query");
-        }
-        /** @var PDOStatement $query */
-        $query = $this->connection->prepare($this->query);
-        $query->execute($this->queryParams);
-        return $query->fetch(PDO::FETCH_ASSOC);
+        return $this->execute()->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -96,13 +72,7 @@ class SelectQueryExecutor extends QueryExecutor
      */
     public function getLastArrayAssocResult()
     {
-        if ($this->connection === null){
-            throw new Exception("The database connection required to execute query");
-        }
-        /** @var PDOStatement $query */
-        $query = $this->connection->prepare($this->query);
-        $query->execute($this->queryParams);
-        $results =  $query->fetchAll(PDO::FETCH_ASSOC);
+        $results = $this->execute()->fetchAll(PDO::FETCH_ASSOC);
         return end($results);
     }
 
@@ -113,14 +83,29 @@ class SelectQueryExecutor extends QueryExecutor
      */
     public function getMappedWithClassResults(EntityInterface $entity)
     {
+
+        $results =  $this->execute()->fetchAll(PDO::FETCH_CLASS, $entity);
+        return end($results);
+    }
+
+    /**
+     * @return PDOStatement
+     * @throws Exception
+     */
+    private function execute(): PDOStatement
+    {
         if ($this->connection === null){
             throw new Exception("The database connection required to execute query");
         }
+        if ($this->queryParams){
+            /** @var PDOStatement $query */
+            $query = $this->connection->prepare($this->query);
+            $query->execute($this->queryParams);
+            return $query;
+        }
         /** @var PDOStatement $query */
-        $query = $this->connection->prepare($this->query);
-        $query->execute($this->queryParams);
-        $results =  $query->fetchAll(PDO::FETCH_CLASS, $entity);
-        return end($results);
+        $query = $this->connection->query($this->query);
+        return $query;
     }
 
 }

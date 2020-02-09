@@ -10,6 +10,7 @@ namespace FSDV\Builder;
 
 use FSDV\Builder\Syntax\QueryBuilderParserParams;
 use FSDV\Builder\Syntax\QueryParameterBuilder;
+use FSDV\Query\InsertQueryExecutor;
 use FSDV\Query\Query;
 
 /**
@@ -74,12 +75,12 @@ class QueryInsertBuilder
     }
 
     /**
-     * @return Query
+     * @return InsertQueryExecutor
      * @throws \Exception
      */
-    public function getQuery(): Query
+    public function getQuery(): InsertQueryExecutor
     {
-       $query = new Query();
+       $query = new InsertQueryExecutor();
        $query->setQuery($this->buildQuery())
             ->setQueryParams($this->buildParametersWithValues($this->culums, $this->values));
        $this->resetBuilder();
