@@ -6,8 +6,12 @@ This is a little orm or query Builder for PHP MySql. This is update for the smal
   - MySql 5.8
   - Composer
 
+# Installation
+ - with composer
+    ```shell
+            $ composer require faso-dev/osc-orm
 # Use cases
-  - WE need to add the autoload file in your application entry point
+  - We need to add the autoload file in your application entry point
 
     ```php
         require_once __DIR__.'/vendor/autoload.php';
