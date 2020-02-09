@@ -13,7 +13,7 @@ use \PDO;
  * Class Persistance
  * @package FSDV\Persistance
  */
-class Persistance extends ConfigReader
+class ConnectionFactory extends ConfigReader
 {
     public function __construct(string $congig_path = null)
     {
