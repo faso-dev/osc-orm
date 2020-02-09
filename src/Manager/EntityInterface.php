@@ -7,8 +7,6 @@
  */
 namespace FSDV\Manager;
 
-use App\Utils\Json\JsonEncodeTrait;
-
 /**
  * Interface EntityInterface
  * @package FSDV\Manager

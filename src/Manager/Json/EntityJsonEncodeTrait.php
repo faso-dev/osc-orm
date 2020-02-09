@@ -1,12 +1,20 @@
 <?php
 
-
+/**
+ * @copyright All rights reserved
+ * @author faso-dev<faso-dev@protonmail.ch>
+ * @license MIT
+ */
 namespace App\Utils\Json;
 
 
 use FSDV\Extractor\Extractor;
 
-trait JsonEncodeTrait
+/**
+ * Trait EntityJsonEncodeTrait
+ * @package App\Utils\Json
+ */
+trait EntityJsonEncodeTrait
 {
     /**
      *
