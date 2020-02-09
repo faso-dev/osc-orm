@@ -4,101 +4,109 @@
 namespace FSDV\Builder;
 
 
+use FSDV\Builder\Syntax\QueryParameterBuilder;
+use FSDV\Query\DeleteQueryExecutor;
+
+/**
+ * Class QueryDeleteBuilder
+ * @package FSDV\Builder
+ */
 class QueryDeleteBuilder
 {
+    use QueryParameterBuilder;
     /**
      * @var string
      */
     protected $table;
 
     /**
-     * @var array
-     */
-    protected $where = [];
-    /**
-     * @var array
-     */
-    protected $whereAnd = [];
-    /**
-     * @var array
-     */
-    protected $whereOr = [];
-    /**
      * @var string
      */
-    protected $or;
+    protected $where ;
+
     /**
-     * @var string
+     * @var array
      */
-    protected $and;
+    protected $parameters;
+
     /**
      * @param string $table
      * @return $this
      */
     public function deleteFrom(string $table)
     {
-        $this->query = $table;
+        $this->table = $table;
         return $this;
     }
 
     /**
-     * @param string $culum
+     * @param string $criterias
+     * @return QueryDeleteBuilder
+     */
+    public function where(string $criterias)
+    {
+        $this->where = $criterias;
+        return $this;
+    }
+
+    /**
+     * @param string $name
      * @param $value
-     * @return $this
+     * @return QueryDeleteBuilder
      */
-    public function where(string $culum, $value)
+    public function setParameter(string $name, $value)
     {
-        $this->where[$culum] = $value;
+        $this->parameters[$name] = $value;
         return $this;
     }
 
     /**
-     * @return $this
+     * @param array $parameters
+     * @return QueryDeleteBuilder
      */
-    public function whereAnd()
+    public function setParameters(array $parameters)
     {
-        $this->whereAnd = func_get_args();
+        $this->parameters = $parameters;
         return $this;
     }
 
     /**
-     * @return $this
+     * reset the builder
      */
-    public function whereOr()
+    private function resetBuilder()
     {
-        $this->whereOr = func_get_args();
-        return $this;
+        $this->where = null;
+        $this->table = null;
+        $this->parameters = [];
     }
 
     /**
-     * @return $this
+     * @return string
+     * @throws \Exception
      */
-    public function or()
+    private function buildQuery()
     {
-        $this->or = QueryBuilderKeyWord::OR;
-        return $this;
+        $query =  QueryBuilderKeyWord::DELETE.' '.QueryBuilderKeyWord::FROM. ' ' .$this->table.' '
+            .' ' ;
+        if ($this->where){
+            $query .= QueryBuilderKeyWord::WHERE. ' ' .$this->where;
+        }
+        return $query;
+    }
+    /**
+     * @return DeleteQueryExecutor
+     * @throws \Exception
+     */
+    public function getQuery(): DeleteQueryExecutor
+    {
+        $query = new DeleteQueryExecutor();
+        $query->setQuery($this->buildQuery())
+            ->setQueryParams($this->parameters);
+        $this->resetBuilder();
+        return $query;
     }
 
-    /**
-     * @return $this
-     */
-    public function and()
-    {
-        $this->and = QueryBuilderKeyWord::AND;
-        return $this;
-    }
 }
 
-$builer = new QueryDeleteBuilder();
 
-$builer->deleteFrom('user')
-    ->where('username', 'instantech')
-    ->and()
-    ->where('id', 10)
-    ->or()
-    ->whereOr('mail','password')
-    ->setWhereOrParams('toto@gmail.com','123secret')
-    ->execute();
 
-$query = 'DELETE FROM user 
-          WHERE (username = instantech AND id = 10) OR (mail = toto@gmail.com OR password = 123secret)'

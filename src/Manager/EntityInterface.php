@@ -1,9 +1,16 @@
 <?php
 
-
+/**
+ * @copyright All rights reserved
+ * @author faso-dev<faso-dev@protonmail.ch>
+ * @license MIT
+ */
 namespace FSDV\Manager;
 
-
+/**
+ * Interface EntityInterface
+ * @package FSDV\Manager
+ */
 interface EntityInterface extends \JsonSerializable
 {
     /**

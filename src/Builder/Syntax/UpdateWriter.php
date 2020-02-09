@@ -48,6 +48,12 @@ class UpdateWriter implements WriterInterface
 
         return mb_substr($query, 0, strlen($query)-2);
     }
+
+    /**
+     * @param array $params
+     * @param array $param
+     * @return array
+     */
     private function allParameters(array $params, array $param)
     {
         return array_merge($params, $param);

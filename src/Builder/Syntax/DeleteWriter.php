@@ -1,12 +1,20 @@
 <?php
 
-
+/**
+ * @copyright All rights reserved
+ * @author faso-dev<faso-dev@protonmail.ch>
+ * @license MIT
+ */
 namespace FSDV\Builder\Syntax;
 
 
 use FSDV\Builder\QueryBuilderKeyWord;
 use PDO;
 
+/**
+ * Class DeleteWriter
+ * @package FSDV\Builder\Syntax
+ */
 class DeleteWriter implements WriterInterface
 {
     use ParameterBuilderTrait;
@@ -26,6 +34,7 @@ class DeleteWriter implements WriterInterface
 
     /**
      * @inheritDoc
+     * @throws \Exception
      */
     public function write(string $table, array $culums, array $values, int $id = null)
     {

@@ -1,8 +1,8 @@
 <?php
 /**
- * @author faso-dev "<faso-dev@protonmail.ch>"
- * @version 1.0
- * @copyright MIT
+ * @copyright All rights reserved
+ * @author faso-dev<faso-dev@protonmail.ch>
+ * @license MIT
  */
 namespace FSDV\Extractor;
 use FSDV\Manager\EntityInterface;

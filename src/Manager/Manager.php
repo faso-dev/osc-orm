@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @copyright All rights reserved
+ * @author faso-dev<faso-dev@protonmail.ch>
+ * @license MIT
+ */
 
 namespace FSDV\Manager;
 
@@ -10,6 +15,10 @@ use FSDV\Builder\Syntax\UpdateWriter;
 use FSDV\Extractor\Extractor;
 use PDO;
 
+/**
+ * Class Manager
+ * @package FSDV\Manager
+ */
 class Manager implements ManagerInterface
 {
     /**

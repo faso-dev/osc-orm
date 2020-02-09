@@ -1,6 +1,10 @@
 <?php
 
-
+/**
+ * @copyright All rights reserved
+ * @author faso-dev<faso-dev@protonmail.ch>
+ * @license MIT
+ */
 namespace FSDV\Builder;
 
 
@@ -8,6 +12,10 @@ use FSDV\Builder\Syntax\QueryBuilderParserParams;
 use FSDV\Builder\Syntax\QueryParameterBuilder;
 use FSDV\Query\Query;
 
+/**
+ * Class QueryInsertBuilder
+ * @package FSDV\Builder
+ */
 class QueryInsertBuilder
 {
     use QueryParameterBuilder;
@@ -40,7 +48,7 @@ class QueryInsertBuilder
     /**
      * @return $this
      */
-    public function colums(): self
+    public function culums(): self
     {
         $this->culums = func_get_args();
         return $this;
@@ -60,14 +68,14 @@ class QueryInsertBuilder
      */
     private function buildQuery()
     {
-        $query  = QueryBuilderKeyWord::INSERT.' '
+        return QueryBuilderKeyWord::INSERT.' '
             .$this->table.' ('.QueryBuilderParserParams::toString($this->culums).') '
             .QueryBuilderKeyWord::VALUES.'('.QueryBuilderParserParams::toString($this->setNamedParameters($this->culums)).')';
-        return $query;
     }
 
     /**
      * @return Query
+     * @throws \Exception
      */
     public function getQuery(): Query
     {

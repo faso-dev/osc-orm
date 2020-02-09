@@ -1,11 +1,19 @@
 <?php
 
-
+/**
+ * @copyright All rights reserved
+ * @author faso-dev<faso-dev@protonmail.ch>
+ * @license MIT
+ */
 namespace FSDV\Builder\Syntax;
 
 
 use FSDV\Query\Query;
 
+/**
+ * Trait ParameterBuilderTrait
+ * @package FSDV\Builder\Syntax
+ */
 trait ParameterBuilderTrait
 {
     /**
@@ -31,7 +39,8 @@ trait ParameterBuilderTrait
 
     /**
      * @param string $querysql la requête sql avec les paramètre nomé
-     * @param array $params les paramètres et leurs valeurs
+     * @param array $params    les paramètres et leurs valeurs
+     * @throws \Exception
      */
     public function excute(string $querysql, array $params)
     {

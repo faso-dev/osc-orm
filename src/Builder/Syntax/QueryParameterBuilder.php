@@ -10,14 +10,14 @@ trait QueryParameterBuilder
      * @param array $culums
      * @param array $values
      * @return array|null
+     * @throws \Exception
      */
     private function buildParametersWithValues(array $culums, array $values): ?array
     {
         if (count($culums) !== count($values)){
             throw new \Exception(sprintf("The culums size does not match with the values size : %d culums with %d values", count($culums), count($values)));
         }
-        $parametersWithValues = array_combine($this->setNamedParameters($culums), $values);
-        return $parametersWithValues;
+        return array_combine($this->setNamedParameters($culums), $values);
     }
 
     /**
@@ -30,5 +30,16 @@ trait QueryParameterBuilder
             return ':'.$key;
         }, $params);
 
+    }
+
+    /**
+     * @param array $culums
+     * @return array
+     */
+    private function buildCulumsWithParametersKeys(array $culums)
+    {
+        return array_map(function ($culums){
+            return $culums.' = :'.$culums;
+        }, $culums);
     }
 }

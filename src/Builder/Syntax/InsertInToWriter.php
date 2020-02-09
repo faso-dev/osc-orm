@@ -1,17 +1,15 @@
 <?php
 
 /**
- * @author faso-dev<faso@protonmail.ch>
- * @version 1.0
+ * @copyright All rights reserved
+ * @author faso-dev<faso-dev@protonmail.ch>
  * @license MIT
- *
  */
 
 namespace FSDV\Builder\Syntax;
 
 
 use FSDV\Builder\QueryBuilderKeyWord;
-use FSDV\Query\Query;
 use PDO;
 
 /**

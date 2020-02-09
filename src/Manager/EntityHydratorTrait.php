@@ -1,9 +1,16 @@
 <?php
 
-
+/**
+ * @copyright All rights reserved
+ * @author faso-dev<faso-dev@protonmail.ch>
+ * @license MIT
+ */
 namespace FSDV\Manager;
 
-
+/**
+ * Trait EntityHydratorTrait
+ * @package FSDV\Manager
+ */
 trait EntityHydratorTrait
 {
     /**

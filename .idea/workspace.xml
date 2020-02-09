@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a0a18a16-d16e-4c8e-806f-81dc1af6f5df" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Builder/QueryUpdateBuilder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Builder/SelectBuilder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Criteria/ParameterCriteriaInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Criteria/WhereCriteriaInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Query/DeleteQueryExecutor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Query/InsertQueryExecutor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Query/QueryExecutor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Query/SelectQueryExecutor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Query/SqlQueryGeneratorTrait.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Query/UpdateQueryExecutor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Builder/QueryBuilderKeyWord.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Builder/QueryBuilderKeyWord.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Builder/QueryDeleteBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Builder/QueryDeleteBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Builder/QueryInsertBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Builder/QueryInsertBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Builder/Syntax/DeleteWriter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Builder/Syntax/DeleteWriter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Builder/Syntax/InsertInToWriter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Builder/Syntax/InsertInToWriter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Builder/Syntax/ParameterBuilderTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Builder/Syntax/ParameterBuilderTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Builder/Syntax/QueryParameterBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Builder/Syntax/QueryParameterBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Builder/Syntax/UpdateWriter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Builder/Syntax/UpdateWriter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Extractor/Extractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Extractor/Extractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Extractor/ExtractorInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Extractor/ExtractorInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Manager/EntityHydratorTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/EntityHydratorTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Manager/EntityInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/EntityInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Manager/Manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/Manager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Manager/ManagerInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/ManagerInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Manager/ManagerRegistry.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/ManagerRegistry.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1XUAUGSYDrdqx6lPuJuVxhjNUne" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="sortByType" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Manager" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a0a18a16-d16e-4c8e-806f-81dc1af6f5df" name="Default Changelist" comment="" />
+      <created>1581090314605</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581090314605</updated>
+      <workItem from="1581090323831" duration="619000" />
+      <workItem from="1581254507070" duration="17835000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="351" y="75" width="1236" height="928" key="#PHP" timestamp="1581258952081">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="351" y="75" width="1236" height="928" key="#PHP/0.0.1920.1080@0.0.1920.1080" timestamp="1581258952081" />
+    <state x="655" y="3" width="590" height="1072" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1581257091837">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="655" y="3" width="590" height="1072" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1581257091837" />
+    <state x="693" y="298" width="524" height="483" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1581271379025">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="693" y="298" width="524" height="483" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1581271379025" />
+    <state x="458" y="309" width="973" height="460" key="NewPhpClassDialog" timestamp="1581257069803">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="458" y="309" width="973" height="460" key="NewPhpClassDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1581257069803" />
+    <state x="632" y="455" width="645" height="168" key="NewPhpFileDialog" timestamp="1581258870181">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="632" y="455" width="645" height="168" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1581258870181" />
+    <state x="519" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1581090322812">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="519" y="367" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1581090322812" />
+  </component>
+</project>

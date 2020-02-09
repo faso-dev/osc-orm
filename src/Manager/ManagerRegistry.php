@@ -1,6 +1,10 @@
 <?php
 
-
+/**
+ * @copyright All rights reserved
+ * @author faso-dev<faso-dev@protonmail.ch>
+ * @license MIT
+ */
 namespace FSDV\Manager;
 
 
@@ -9,6 +13,10 @@ use FSDV\Extractor\Extractor;
 use PDO;
 use ReflectionException;
 
+/**
+ * Class ManagerRegistry
+ * @package FSDV\Manager
+ */
 abstract class ManagerRegistry
 {
     /**
@@ -24,6 +32,7 @@ abstract class ManagerRegistry
      * ManagerRegistry constructor.
      * @param PDO $connection
      * @param string $entity
+     * @throws ReflectionException
      */
     public function __construct(PDO $connection, string $entity) {
 
