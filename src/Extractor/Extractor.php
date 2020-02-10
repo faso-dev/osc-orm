@@ -82,8 +82,11 @@ class Extractor implements ExtractorInterface
      */
     public static function extractClassName($class)
     {
-        $className = explode('\\', strtolower((new ReflectionClass($class))->getName()));
-        return end($className);
+        $classNameSpace = explode('\\', strtolower((new ReflectionClass($class))->getName()));
+        $className = end($classNameSpace);
+        $className = preg_split('/(?=[A-Z])/', $className, -1, PREG_SPLIT_NO_EMPTY);
+        $className = implode('_', $className);
+        return strtolower($className);
     }
 
     /**
