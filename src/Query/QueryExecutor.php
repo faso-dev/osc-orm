@@ -8,6 +8,7 @@
 namespace FSDV\Query;
 
 
+use FSDV\Persistance\ConnectionFactory;
 use PDO;
 
 /**
@@ -32,11 +33,11 @@ class QueryExecutor
 
     /**
      * Query constructor.
-     * @param PDO $connection
+     * @throws \Exception
      */
-    public function __construct(PDO $connection = null)
+    public function __construct()
     {
-        $this->connection = $connection;
+        $this->connection = ConnectionFactory::create();
     }
 
     /**

@@ -84,7 +84,35 @@ class QueryBuilder
         $this->query = "";
     }
 
+    /**
+     * @return SelectBuilder
+     */
+    public function createSelectQueryBuilder(): SelectBuilder
+    {
+        return new SelectBuilder();
+    }
 
+    /**
+     * @return QueryUpdateBuilder
+     */
+    public function createUpdateQueryBuilder(): QueryUpdateBuilder
+    {
+        return new QueryUpdateBuilder();
+    }
+    /**
+     * @return QueryDeleteBuilder
+     */
+    public function createDeleteQueryBuilder(): QueryDeleteBuilder
+    {
+        return new QueryDeleteBuilder();
+    }
+    /**
+     * @return QueryInsertBuilder
+     */
+    public function createInsertQueryBuilder(): QueryInsertBuilder
+    {
+        return new QueryInsertBuilder();
+    }
     public function select()
     {
         $this->fields = func_get_args();

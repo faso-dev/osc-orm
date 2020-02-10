@@ -18,14 +18,7 @@ use PDOStatement;
  */
 class DeleteQueryExecutor extends QueryExecutor
 {
-    /**
-     * DeleteQueryExecutor constructor.
-     * @param PDO|null $connection
-     */
-    public function __construct(PDO $connection = null)
-    {
-        parent::__construct($connection);
-    }
+   public function __construct() { }
 
     /**
      * @throws Exception

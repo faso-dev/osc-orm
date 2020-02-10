@@ -2,9 +2,10 @@
 
 /**
  * @copyright All rights reserved
- * @author faso-dev<faso-dev@protonmail.ch>
- * @license MIT
+ * @author    faso-dev<faso-dev@protonmail.ch>
+ * @license   MIT
  */
+
 namespace FSDV\Extractor;
 
 use FSDV\Manager\EntityInterface;
@@ -30,9 +31,9 @@ class Extractor implements ExtractorInterface
         $class = new ReflectionClass($class);
         /** @var ReflectionProperty $properties */
         $properties = $class->getProperties();
-        return array_map(function (ReflectionProperty $property){
+        return array_map(function (ReflectionProperty $property) {
             return $property->getName();
-        },(array)$properties);
+        }, (array)$properties);
     }
 
     /**
@@ -45,12 +46,16 @@ class Extractor implements ExtractorInterface
         $reflectedClass = new ReflectionClass($class);
         /** @var ReflectionProperty $properties */
         $properties = $reflectedClass->getProperties();
-        return array_map(function (ReflectionProperty $property) use ($reflectedClass, $class){
+        return array_map(function (ReflectionProperty $property) use ($reflectedClass, $class) {
             $property->setAccessible(true);
-            $method = 'get'.ucwords(str_replace('_', '', $property->getName()));
-            /** @var ReflectionMethod $method */
-            $method = $reflectedClass->getMethod($method);
-            return $method->invoke($class);
+            $method = 'get' . ucwords(str_replace('_', '', $property->getName()));
+            if (method_exists($class, $method)) {
+                /** @var ReflectionMethod $method */
+                $method = $reflectedClass->getMethod($method);
+                return $method->invoke($class);
+
+            }
+            return '';
         }, (array)$properties);
     }
 
@@ -61,19 +66,20 @@ class Extractor implements ExtractorInterface
      */
     public static function hidenArrayField(array $fields, string $field)
     {
-        return array_filter($fields, function () use ($field, $fields){
+        return array_filter($fields, function () use ($field, $fields) {
             return !array_key_exists($field, $fields);
         });
     }
+
     /**
      * @inheritDoc
      * @throws ReflectionException
      */
     public static function extractClassPropertiesWithValues(EntityInterface $class)
     {
-       return array_combine(
-           self::extractClassProperties($class),
-           self::extractClassPropertiesValues($class));
+        return array_combine(
+            self::extractClassProperties($class),
+            self::extractClassPropertiesValues($class));
     }
 
     /**

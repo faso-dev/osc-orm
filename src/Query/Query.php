@@ -1,6 +1,10 @@
 <?php
 
-
+/**
+ * @copyright All rights reserved
+ * @author faso-dev<faso-dev@protonmail.ch>
+ * @license MIT
+ */
 namespace FSDV\Query;
 
 use Exception;
@@ -85,6 +89,7 @@ class Query
 
     /**
      * @return array
+     * @throws Exception
      */
     public function getArrayAssocResult(): array
     {
@@ -94,6 +99,7 @@ class Query
     /**
      * @param string $class
      * @return array Collection d'objet de la classe $class
+     * @throws Exception
      */
     public function getMappedResultWith(string $class)
     {
@@ -107,6 +113,7 @@ class Query
      * @param string $class
      * @return mixed
      * @throws \ReflectionException
+     * @throws Exception
      */
     public function getOneMappedWith(string $class)
     {
@@ -115,6 +122,7 @@ class Query
 
     /**
      * @return array
+     * @throws Exception
      */
     public function getArrayResult(): array
     {
@@ -123,6 +131,7 @@ class Query
 
     /**
      * @return array | null
+     * @throws Exception
      */
     public function first(): ?array
     {
@@ -135,6 +144,7 @@ class Query
 
     /**
      * @return mixed
+     * @throws Exception
      */
     public function last()
     {
@@ -155,6 +165,7 @@ class Query
 
     /**
      * @return bool|PDOStatement
+     * @throws Exception
      */
     public function executeQuery()
     {
@@ -172,6 +183,7 @@ class Query
 
     /**
      * @return int|null
+     * @throws Exception
      */
     public function save()
     {
@@ -183,8 +195,10 @@ class Query
         $query->execute($this->queryParams);
         return (int)$this->connection->lastInsertId();
     }
+
     /**
      * @return false|PDOStatement
+     * @throws Exception
      */
     public function query()
     {
