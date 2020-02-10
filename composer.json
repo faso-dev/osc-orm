@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "FSDV\\": "src/"
+            "FSDV\\": "src/FSDV/"
         }
     },
     "minimum-stability": "dev",
