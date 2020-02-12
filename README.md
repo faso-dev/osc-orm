@@ -23,19 +23,27 @@ This is a little orm or query Builder for PHP MySql. This is update for the smal
             use FSDV\Persistance\ConnectionFactory;
             //if we have setting config dir in your project root
             // and it contain file named db_config.ini
-            $conection = ConnectionFactory::create();
-            
+            $conection = (new ConnectionFactory)
+                              ->setConfig([
+                                  'driver'    => 'mysql',
+                                  'database'  => 'application_db',
+                                  'host'      => '127.0.0.1',
+                                  'username'  => 'root',
+                                  'password'  => 'secret'
+                              ])
+                              ->create();
+
             $builder = new QueryInsertBuilder();
-            // Build a sql query, just generate the query 
+            // Build a sql query, just generate the query
             $query = $builder
                 ->insertInTo('user')
                 ->culums('name','username','mail','role')
                 ->values('faso-dev','faso-dev','mail@mail.faso-dev','ROLE_SUPER_ADMIN')
                 ->getQuery()
                 ->getSQLQuery();
-    
+
             // Build and commit the query on the database
-            // We must give the conection instance to the query class to commit 
+            // We must give the conection instance to the query class to commit
             // query in the database
             $lastInsertId = $builder
                 ->insertInTo('user')
@@ -44,7 +52,7 @@ This is a little orm or query Builder for PHP MySql. This is update for the smal
                 ->getQuery()
                 ->setConnection($conection)
                 ->save();
-  
+
   - SELECT CASE
     - ### WITH QUERY SELECT BUILDER
       ```php
@@ -95,10 +103,10 @@ This is a little orm or query Builder for PHP MySql. This is update for the smal
   - UPDATE CASE
     - ### WITH QUERY UPDATE BUILDER
         ```php
-        
+
             use FSDV\Builder\QueryUpdateBuilder;
 
-            // build an update query 
+            // build an update query
             $builder = new QueryUpdateBuilder();
             try {
                 $query = $builder->update('user')

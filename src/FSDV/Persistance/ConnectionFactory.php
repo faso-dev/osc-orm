@@ -1,122 +1,107 @@
 <?php
 
-/**
- * @copyright All rights reserved
- * @author faso-dev<faso-dev@protonmail.ch>
- * @license MIT
- */
-
 namespace FSDV\Persistance;
+
+
 use \PDO;
 
 /**
- * Class Persistance
+ * ConnectionFactory class
+ * 
  * @package FSDV\Persistance
+ * @author faso-dev<faso-dev@protonmail.ch>
  */
 class ConnectionFactory
 {
     /**
-     * @var string
+     * Tableau de configuration de la base de donnée.
+     * 
+     * Database configuration settings.
+     * 
+     * @var array
      */
-    protected static $path = __DIR__ . '/../../../../../config/db_config.ini';
+    protected $config = [];
+
     /**
-     * @var array Tableau de configuration de la base de donnée
+     * L'instance de la connection
+     * 
+     * The instance of PDO connection
+     * 
+     * @var null|PDO
      */
-    protected static $config = [];
-    /**
-     * @var PDO L'instance de la connection
-     */
-    private static $connection = null;
+    private $connection = null;
 
     /**
      * ConnectionFactory constructor.
-     * @param string|null $congig_path
+     * 
+     * @param array $config
+     * @return void
      */
-    public function __construct(string $congig_path = null)
+    public function __construct(array $config = [])
     {
-        if (null !== $congig_path){
-            self::$path = $congig_path;
-        }
+        $this->setConfig($config);
     }
-
+    
     /**
-     * @return PDO Renvoie une instance de PDO avec la connection à la base de donnée créée
-     * @throws \Exception
+     * Set configurations to be used for connection.
+     * 
+     * Définir les configurations à utiliser pour la connexion.
+     * 
+     * @param array $config
+     * @return $this
      */
-    public static function create(): PDO
+    public function setConfig(array $config) 
     {
-        if (null === self::$connection) {
-            self::BOOT_CONFIG();
-            self::$connection = new PDO("mysql:host=" . self::DB_HOST() . ":" . self::DB_PORT() . ";dbname=" . self::DB_NAME(),
-                self::DB_USER(), self::DB_PASSWORD(), [
+        $this->config = $config;
+        
+        return $this;
+    }
+    
+    /**
+     * Renvoie une instance de PDO avec la connection à la base de donnée créée.
+     * 
+     * Returns an instance of PDO with the created database connection.
+     * 
+     * @param array $configuration
+     * @return PDO
+     * @throws PDOException
+     */
+    public function create(array $configuration = null): PDO
+    {
+        $config = $configuration ?? $this->config;
+        
+        if ($this->connection !== null) {
+            return $this->connection;
+        }
+        
+        // Now we can support multiple PDO drivers like pgsql and sqlite.
+        switch ($config['driver']) {
+            
+            case 'mysql':
+                $this->connection = $this->mysqlConnection($config);
+                
+                break;
+
+            default:
+                break;
+        }
+        
+        return $this->connection;
+    }
+    
+    /**
+     * Get a MySql connection.
+     * 
+     * Obtenez une connexion MySql.
+     * 
+     * @param array $config
+     * @return PDO
+     * @throws PDOException
+     */
+    protected function mysqlConnection(array $config)
+    {
+        return new PDO("mysql:host={$config['host']};dbname={$config['database']}", $config['username'], $config['password'], [
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 ]);
-        }
-        return self::$connection;
     }
-
-    /**
-     * @return string Renvoie l'hôte actuel de la base de donée
-     */
-    public static function DB_HOST(): string
-    {
-        return self::$config['DB_HOST'];
-    }
-
-    /**
-     * @return string Renvoie le nom actuel de la base de donée
-     */
-    public static function DB_NAME(): string
-    {
-        return self::$config['DB_NAME'];
-    }
-
-    /**
-     * @return string Renvoie le username actuel de la base de donée
-     */
-    public static function DB_USER(): string
-    {
-        return self::$config['DB_USER'];
-    }
-
-    /**
-     * @return string Renvoie le mot de passe actuel de la base de donée
-     */
-    public static function DB_PASSWORD(): string
-    {
-        return self::$config['DB_PASSWORD'];
-    }
-
-    /**
-     * @return int renvoie le port actuelle de la base de donnée
-     */
-    public static function DB_PORT(): int
-    {
-        return self::$config['DB_PORT'];
-    }
-
-    /**
-     * @return void
-     * @throws \Exception
-     */
-    protected static function BOOT_CONFIG(): void
-    {
-        if (file_exists(self::$path)){
-            $config = file_get_contents(self::$path);
-            self::$config = parse_ini_string($config);
-        }else{
-            throw new \Exception("The file config does not exist");
-        }
-    }
-
-    /**
-     * @return array
-     * @throws \Exception
-     */
-    public static function GET_CONFIG(): ?array
-    {
-        self::BOOT_CONFIG();
-        return self::$config;
-    }
-
 }
