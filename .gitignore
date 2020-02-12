@@ -1,2 +1,6 @@
-vendor/
 .idea
+/vendor
+/nbproject
+.env
+.env.backup
+.phpunit.result.cache
