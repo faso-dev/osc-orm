@@ -25,7 +25,7 @@ class DBTestCase extends TestCase
     {
         $query = DB::select()->from('user')->getQuery()->getSQLQuery();
         $expected = 'SELECT * FROM user';
-        $this->assertEqualsIgnoringCase($expected, $expected);
+        $this->assertEqualsIgnoringCase($expected, trim($query));
     }
 
     public function testIfTheReturnInsertBuilder()

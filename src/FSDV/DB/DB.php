@@ -50,7 +50,9 @@ class DB
      */
     public static function select()
     {
-        return (new SelectBuilder())
-            ->select(implode(',', func_get_args()));
+        return func_num_args() > 0 ? (new SelectBuilder())
+            ->select(implode(',', func_get_args())) :
+            (new SelectBuilder())
+                ->select();
     }
 }
