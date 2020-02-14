@@ -275,12 +275,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "e2ce1d210acaf2c3aeab9d7428bfc55e7d468767"
+                "reference": "edea3e869367921987704325b997a80cdaea6d66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/e2ce1d210acaf2c3aeab9d7428bfc55e7d468767",
-                "reference": "e2ce1d210acaf2c3aeab9d7428bfc55e7d468767",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/edea3e869367921987704325b997a80cdaea6d66",
+                "reference": "edea3e869367921987704325b997a80cdaea6d66",
                 "shasum": ""
             },
             "require": {
@@ -320,7 +320,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2020-02-10T20:23:05+00:00"
+            "time": "2020-02-12T20:05:04+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -744,12 +744,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "d97176bc071414016789442b86469fe76b9bf8f7"
+                "reference": "6d6f260a2e82f57026b28db566da6e62fff3bf2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d97176bc071414016789442b86469fe76b9bf8f7",
-                "reference": "d97176bc071414016789442b86469fe76b9bf8f7",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6d6f260a2e82f57026b28db566da6e62fff3bf2a",
+                "reference": "6d6f260a2e82f57026b28db566da6e62fff3bf2a",
                 "shasum": ""
             },
             "require": {
@@ -819,7 +819,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2020-02-11T06:07:43+00:00"
+            "time": "2020-02-11T16:13:52+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",

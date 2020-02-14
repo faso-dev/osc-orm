@@ -2,6 +2,7 @@
   <testsuites>
     <testsuite name="orm">
       <file>tests/ConnectionFactoryTestCase.php</file>
+      <file>tests/src/FSDV/DB/DBTestCase.php</file>
     </testsuite>
   </testsuites>
 </phpunit>
