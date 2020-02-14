@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @copyright All rights reserved
+ * @author faso-dev<faso-dev@protonmail.ch>
+ * @license MIT
+ */
 namespace Tests\src\FSDV\DB;
 
 use FSDV\Builder\QueryDeleteBuilder;
@@ -20,12 +24,6 @@ class DBTestCase extends TestCase
     public function testIfTheReturnSelectBuilder()
     {
         $this->assertInstanceOf(SelectBuilder::class, DB::select());
-    }
-    public function testIfTheSelectBuilderReturnAGoodQuery()
-    {
-        $query = DB::select()->from('user')->getQuery()->getSQLQuery();
-        $expected = 'SELECT * FROM user';
-        $this->assertEqualsIgnoringCase($expected, trim($query));
     }
 
     public function testIfTheReturnInsertBuilder()

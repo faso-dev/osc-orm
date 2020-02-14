@@ -1,8 +1,16 @@
 <phpunit bootstrap="vendor/autoload.php">
   <testsuites>
-    <testsuite name="orm">
-      <file>tests/ConnectionFactoryTestCase.php</file>
+    <testsuite name="persistance">
+      <file>tests/src/FSDV/Persistance/ConnectionFactoryTestCase.php</file>
+    </testsuite>
+    <testsuite name="db">
       <file>tests/src/FSDV/DB/DBTestCase.php</file>
+    </testsuite>
+    <testsuite name="builder">
+      <file>tests/src/FSDV/Builder/SelectBuilderTestCase.php</file>
+      <file>tests/src/FSDV/Builder/UpdateBuilderTestCase.php</file>
+      <file>tests/src/FSDV/Builder/DeleteBuilderTestCase.php</file>
+      <file>tests/src/FSDV/Builder/InsertBuilderTestCase.php</file>
     </testsuite>
   </testsuites>
 </phpunit>

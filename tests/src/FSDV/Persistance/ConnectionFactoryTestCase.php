@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 class ConnectionFactoryTestCase extends TestCase
 {
     protected $connection;
-    
+
     /**
     * Setup connection before each test.
     *
@@ -22,8 +22,8 @@ class ConnectionFactoryTestCase extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        
-        $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__.'/../');
+
+        $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/osc-orm/');
         $dotenv->load();
 
         $this->connection = (new ConnectionFactory);
@@ -41,7 +41,7 @@ class ConnectionFactoryTestCase extends TestCase
      * @test
      */
     public function returnsPDOInstance()
-    {        
+    {
         $this->assertInstanceOf(\PDO::class, $this->connection->create([
                 'driver'    => getenv('DB_CONNECTION'),
                 'database'  => getenv('DB_DATABASE'),
