@@ -14,21 +14,27 @@ class DBTestCase extends TestCase
 
     public function testIfTheReturnDeleteBuilder()
     {
-        $this->assertInstanceOf(QueryDeleteBuilder::class, DB::delete());
+        $this->assertInstanceOf(QueryDeleteBuilder::class, DB::deleteFrom('test'));
     }
 
     public function testIfTheReturnSelectBuilder()
     {
         $this->assertInstanceOf(SelectBuilder::class, DB::select());
     }
+    public function testIfTheSelectBuilderReturnAGoodQuery()
+    {
+        $query = DB::select()->from('user')->getQuery()->getSQLQuery();
+        $expected = 'SELECT * FROM user';
+        $this->assertEqualsIgnoringCase($expected, $expected);
+    }
 
     public function testIfTheReturnInsertBuilder()
     {
-        $this->assertInstanceOf(QueryInsertBuilder::class, DB::insert());
+        $this->assertInstanceOf(QueryInsertBuilder::class, DB::insertInto('test'));
     }
 
     public function testIfTheReturnUpdateBuilder()
     {
-        $this->assertInstanceOf(QueryUpdateBuilder::class, DB::update());
+        $this->assertInstanceOf(QueryUpdateBuilder::class, DB::update('test'));
     }
 }

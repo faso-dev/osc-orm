@@ -33,11 +33,11 @@ class QueryExecutor
 
     /**
      * Query constructor.
-     * @throws \Exception
+     * @param PDO|null $connection
      */
-    public function __construct()
+    public function __construct(PDO $connection = null)
     {
-        $this->connection = ConnectionFactory::create();
+        $this->connection = $connection;
     }
 
     /**

@@ -23,11 +23,11 @@ class UpdateQueryExecutor extends QueryExecutor
 
     /**
      * UpdateQueryExecutor constructor.
-     * @throws Exception
+     * @param PDO|null $connection
      */
-    public function __construct()
+    public function __construct(PDO $connection = null)
     {
-        parent::__construct();
+        parent::__construct($connection);
     }
 
     /**

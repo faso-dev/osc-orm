@@ -91,6 +91,8 @@ class SelectBuilder implements WhereCriteriaInterface
      */
     private $agregation;
 
+    public function __construct() { }
+
     /**
      * @return $this
      */
