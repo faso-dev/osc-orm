@@ -16,27 +16,33 @@ use FSDV\Builder\SelectBuilder;
 class DB
 {
     /**
+     * @param string $table
      * @return QueryInsertBuilder
      */
-    public static function insert()
+    public static function insertInto(string $table)
     {
-        return new QueryInsertBuilder();
+        return (new QueryInsertBuilder())
+            ->insertInTo($table);
     }
 
     /**
+     * @param string $table
      * @return QueryUpdateBuilder
      */
-    public static function update()
+    public static function update(string $table)
     {
-        return new QueryUpdateBuilder();
+        return (new QueryUpdateBuilder())
+            ->update($table);
     }
 
     /**
+     * @param string $table
      * @return QueryDeleteBuilder
      */
-    public static function delete()
+    public static function deleteFrom(string $table)
     {
-        return new QueryDeleteBuilder();
+        return (new QueryDeleteBuilder())
+            ->deleteFrom($table);
     }
 
     /**
@@ -44,6 +50,7 @@ class DB
      */
     public static function select()
     {
-        return new SelectBuilder();
+        return (new SelectBuilder())
+            ->select(implode(',', func_get_args()));
     }
 }

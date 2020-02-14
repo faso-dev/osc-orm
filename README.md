@@ -19,7 +19,6 @@ This is a little orm or query Builder for PHP MySql. This is update for the smal
     - ### With QUERY INSERT BUILDER
 
       ```php
-            use FSDV\Builder\QueryInsertBuilder;
             use FSDV\Persistance\ConnectionFactory;
             //if we have setting config dir in your project root
             // and it contain file named db_config.ini
