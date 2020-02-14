@@ -99,7 +99,7 @@ class SelectBuilder implements WhereCriteriaInterface
     public function select()
     {
         if (func_num_args() === 0)
-            $this->culums = '*';
+            $this->culums = '* ';
         else {
             $this->culums = QueryBuilderParserParams::toString(func_get_args(), ', ') . ' ';
         }
@@ -233,7 +233,7 @@ class SelectBuilder implements WhereCriteriaInterface
      */
     public function sum(string $culum, string $alias = null)
     {
-        $this->agregation = QueryBuilderKeyWord::SUM . '(' . $culum . ')';
+        $this->agregation = QueryBuilderKeyWord::SUM . '(' . $culum . ') ';
         if ($alias) {
             $this->agregation .= ' AS ' . $alias . ' ';
         }
@@ -247,7 +247,7 @@ class SelectBuilder implements WhereCriteriaInterface
      */
     public function max(string $culum, string $alias = null)
     {
-        $this->agregation = QueryBuilderKeyWord::MAX . '(' . $culum . ')';
+        $this->agregation = QueryBuilderKeyWord::MAX . '(' . $culum . ') ';
         if ($alias) {
             $this->agregation .= ' AS ' . $alias . ' ';
         }
@@ -261,7 +261,7 @@ class SelectBuilder implements WhereCriteriaInterface
      */
     public function min(string $culum, string $alias = null)
     {
-        $this->agregation = QueryBuilderKeyWord::MIN . '(' . $culum . ')';
+        $this->agregation = QueryBuilderKeyWord::MIN . '(' . $culum . ') ';
         if ($alias) {
             $this->agregation .= ' AS ' . $alias . ' ';
         }
@@ -275,7 +275,7 @@ class SelectBuilder implements WhereCriteriaInterface
      */
     public function count(string $culum, string $alias = null)
     {
-        $this->agregation = QueryBuilderKeyWord::COUNT . '(' . $culum . ')';
+        $this->agregation = QueryBuilderKeyWord::COUNT . '(' . $culum . ') ';
         if ($alias) {
             $this->agregation .= ' AS ' . $alias . ' ';
         }
@@ -289,7 +289,7 @@ class SelectBuilder implements WhereCriteriaInterface
      */
     public function avg(string $culum, string $alias = null)
     {
-        $this->agregation = QueryBuilderKeyWord::AVG . '(' . $culum . ')';
+        $this->agregation = QueryBuilderKeyWord::AVG . '(' . $culum . ') ';
         if ($alias) {
             $this->agregation .= ' AS ' . $alias . ' ';
         }
@@ -335,11 +335,11 @@ class SelectBuilder implements WhereCriteriaInterface
     {
         $query = QueryBuilderKeyWord::SELECT . ' ';
         if ($this->culums) {
-            $query .= $this->culums . ' ';
+            $query .= $this->culums;
         } else {
-            $query .= $this->agregation . ' ';
+            $query .= $this->agregation;
         }
-        $query .= QueryBuilderKeyWord::FROM . ' ' . $this->from . ' ';
+        $query .= QueryBuilderKeyWord::FROM . ' ' . $this->from;
         if ($this->join) {
             $query .= $this->join;
         }
@@ -355,7 +355,7 @@ class SelectBuilder implements WhereCriteriaInterface
         if ($this->limit) {
             $query .= $this->limit;
         }
-        return $query;
+        return trim($query);
     }
 
     /**

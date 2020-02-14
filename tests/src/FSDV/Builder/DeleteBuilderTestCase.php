@@ -32,7 +32,7 @@ class DeleteBuilderTestCase extends TestCase
 
     public function testIfTheDeleteBuilderReturnAGoodQuery()
     {
-        $expected = 'DELETE FROM user as u  WHERE u.id = :id AND u.username = :username';
+        $expected = 'DELETE FROM user as u WHERE u.id = :id AND u.username = :username';
         $this->assertEqualsIgnoringCase($expected, trim($this->qd->getSQLQuery()));
     }
 

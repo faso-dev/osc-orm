@@ -69,9 +69,10 @@ class QueryInsertBuilder
      */
     private function buildQuery()
     {
-        return QueryBuilderKeyWord::INSERT.' '
-            .$this->table.' ('.QueryBuilderParserParams::toString($this->culums).') '
+        $query =  QueryBuilderKeyWord::INSERT.' '
+            .$this->table.'('.QueryBuilderParserParams::toString($this->culums).') '
             .QueryBuilderKeyWord::VALUES.'('.QueryBuilderParserParams::toString($this->setNamedParameters($this->culums)).')';
+        return trim($query);
     }
 
     /**

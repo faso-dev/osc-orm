@@ -29,7 +29,7 @@ class InsertBuilderTestCase extends TestCase
 
     public function testIfTheDeleteBuilderReturnAGoodQuery()
     {
-        $expected = 'INSERT INTO  user (name,lastname,mail,role,username) VALUES(:name,:lastname,:mail,:role,:username)';
+        $expected = 'INSERT INTO user(name,lastname,mail,role,username) VALUES(:name,:lastname,:mail,:role,:username)';
         $this->assertEqualsIgnoringCase($expected, trim($this->qi->getSQLQuery()));
     }
 

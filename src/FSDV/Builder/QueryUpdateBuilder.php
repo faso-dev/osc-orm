@@ -1,6 +1,10 @@
 <?php
 
-
+/**
+ * @copyright All rights reserved
+ * @author faso-dev<faso-dev@protonmail.ch>
+ * @license MIT
+ */
 namespace FSDV\Builder;
 
 
@@ -41,7 +45,7 @@ class QueryUpdateBuilder implements WhereCriteriaInterface, ParameterCriteriaInt
 
     public function update(string $table)
     {
-        $this->table = $table;
+        $this->table = $table.' ';
         return $this;
     }
 
@@ -94,12 +98,12 @@ class QueryUpdateBuilder implements WhereCriteriaInterface, ParameterCriteriaInt
      */
     private function buildQuery()
     {
-        $query =  QueryBuilderKeyWord::UPDATE.' '.$this->table.' '.QueryBuilderKeyWord::SET
+        $query =  QueryBuilderKeyWord::UPDATE.' '.$this->table.QueryBuilderKeyWord::SET
             .' ' .QueryBuilderParserParams::toString($this->buildCulumsWithParametersKeys($this->culums), ', '). ' ';
         if ($this->where){
             $query .= QueryBuilderKeyWord::WHERE. ' ' .$this->where;
         }
-        return $query;
+        return trim($query);
     }
     /**
      * @return UpdateQueryExecutor

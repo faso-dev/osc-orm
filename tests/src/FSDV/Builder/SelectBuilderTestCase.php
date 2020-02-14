@@ -33,7 +33,7 @@ class SelectBuilderTestCase extends TestCase
 
     public function testIfTheSelectBuilderReturnAGoodQuery()
     {
-        $expected = 'SELECT * FROM user as u  WHERE u.id = :id AND u.username = :username';
+        $expected = 'SELECT * FROM user as u WHERE u.id = :id AND u.username = :username';
         $this->assertEqualsIgnoringCase($expected, trim($this->qs->getSQLQuery()));
     }
 

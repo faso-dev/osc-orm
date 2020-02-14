@@ -1,6 +1,10 @@
 <?php
 
-
+/**
+ * @copyright All rights reserved
+ * @author faso-dev<faso-dev@protonmail.ch>
+ * @license MIT
+ */
 namespace FSDV\Builder;
 
 
@@ -35,7 +39,7 @@ class QueryDeleteBuilder
      */
     public function deleteFrom(string $table)
     {
-        $this->table = $table;
+        $this->table = $table.' ';
         return $this;
     }
 
@@ -86,12 +90,11 @@ class QueryDeleteBuilder
      */
     private function buildQuery()
     {
-        $query =  QueryBuilderKeyWord::DELETE.' '.QueryBuilderKeyWord::FROM. ' ' .$this->table.' '
-            .' ' ;
+        $query =  QueryBuilderKeyWord::DELETE.' '.QueryBuilderKeyWord::FROM. ' ' .$this->table;
         if ($this->where){
             $query .= QueryBuilderKeyWord::WHERE. ' ' .$this->where;
         }
-        return $query;
+        return trim($query);
     }
     /**
      * @return DeleteQueryExecutor

@@ -7,7 +7,7 @@ namespace FSDV\Builder;
 class QueryBuilderKeyWord
 {
     public const SELECT       = 'SELECT';
-    public const INSERT       = 'INSERT INTO ';
+    public const INSERT       = 'INSERT INTO';
     public const VALUES       = 'VALUES';
     public const DELETE       = 'DELETE';
     public const UPDATE       = 'UPDATE';
